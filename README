@@ -1,0 +1,6 @@
+Scripts included from other projects:
+
+pre-tokenizer.perl : from Moses
+tokenizer.perl : from wmt12 tools
+normalize-punctuation.perl : from wmt12 tools
+
