@@ -1,10 +1,3 @@
-The original europarl files contain blank lines.
-TODO: See if they line up in en vs fr.
-Maybe that's why the merged versions don't have the same number of
-lines; they don't have blank lines in them, I believe.
-
-I've written a remove_blanklines.d .need to test and add to run.sh
-
 europarl page has a tools.tgz.  More complete version of the ones from
 wmt12.  Use those; more prefix files if nothing else. Also probably
 where wmt12 got it from, so better to cite that.

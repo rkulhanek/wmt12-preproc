@@ -1,0 +1,6 @@
+scripts/mark_chapters
+scripts/remove_blanklines
+scripts/*.o
+tmp
+out
+
