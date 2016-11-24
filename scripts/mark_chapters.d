@@ -46,7 +46,6 @@ auto splitlines(string fname, bool mark_newlines) {
 		"";
 
 	return new Generator!string({
-		stderr.writef("Generator reading '%s'\n", fname);
 		foreach (string s; lines(File(fname))) {
 			if (s.matchAll(regex("<.*>")) && !s.strip().matchFirst(regex(`<[^>]*>$`))) {
 				stderr.writef("%s, %s: Removing inline tag from line: \"%s\"\n", lineno_nodocs, lineno_docs, s);

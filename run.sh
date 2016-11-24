@@ -30,17 +30,15 @@ function f() {
 	fi
 
 	# Merging
-	echo scripts/mark_chapters -l "$lang" --aligned "$TMP_DIR/aligned.noempty.$lang" --tagged "$TMP_DIR/$lang.tmp"
-	scripts/mark_chapters -l "$lang" --aligned "$TMP_DIR/aligned.noempty.$SRC-$TARG.$lang" --tagged "$TMP_DIR/$lang.tmp" > "$TMP_DIR/$lang.merged"
-
 	scripts/mark_chapters -l "$lang" --aligned "$TMP_DIR/aligned.noempty.$SRC-$TARG.$lang" --tagged "$TMP_DIR/$lang.tmp" | # merge tagged and untagged
 	sed '1 { /^<CHAPTER[^>]*>$/ d }; s/^<CHAPTER[^>]*>$/ENDxDOCUMENT/' | # chapter tags -> ENDxDOCUMENT tags ("</doc>" would get clobbered by tokenizer)
 	scripts/normalize-punctuation.perl -l "$lang"  | # gets rid of unnecessary variance, e.g. the ~4 different unicode dashes.
 	scripts/pre-tokenizer.perl -l "$lang" | # minor changes, e.g. "foo' s" becomes "foo 's"
 	scripts/tokenizer.perl "$lang" | # main tokenization script
-	sed 's/^ENDxDOCUMENT$/<\/doc>/' > "$OUT_DIR/$lang.txt" # back to </doc>
-
-	# TODO: change </doc> to something the perl scripts will ignore.  And then run the perl scripts.
+	sed 's/^ENDxDOCUMENT$/<\/doc>/' | # bak to </doc>
+	scripts/remove_empty_docs.awk > "$OUT_DIR/$lang.txt"
+	
+	# TODO:
 	# Put this all on github when I'm done so I don't lose it.
 	# Have a makefile or something that wgets the appropriate corpora and does everything from scratch?
 }
