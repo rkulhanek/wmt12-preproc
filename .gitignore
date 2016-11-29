@@ -3,4 +3,5 @@ scripts/remove_blanklines
 scripts/*.o
 tmp
 out
+corpora
 

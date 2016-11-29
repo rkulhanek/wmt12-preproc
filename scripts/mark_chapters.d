@@ -240,7 +240,7 @@ int main(string[] argv) {
 
 	auto languages = [ "en", "fr" ];
 	assert(languages.count(language) > 0);
-	stderr.writef("Language: %s", language);
+	stderr.writef("Language: %s\n", language);
 
 	try {
 		//TODO: If we saved the intermediate files, read from *those* instead of redoing the work?
