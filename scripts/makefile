@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-BIN=mark_chapters remove_blanklines
+BIN=mark_chapters remove_blanklines lowernum
 
 all: $(BIN)
 clean:

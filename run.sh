@@ -38,6 +38,7 @@ function parse_europarl() {
 	# Merging
 	scripts/mark_chapters -l "$lang" --aligned "$TMP_DIR/aligned.noempty.$SRC-$REF.$lang" --tagged "$TMP_DIR/$lang.tmp" | # merge tagged and untagged
 	sed '1 { /^<CHAPTER[^>]*>$/ d }; s/^<CHAPTER[^>]*>$/ENDxDOCUMENT/' | # chapter tags -> ENDxDOCUMENT tags ("</doc>" would get clobbered by tokenizer)
+	sed '/^<EOF>$/ d' | # remove <EOF> tag from end
 	scripts/normalize-punctuation.perl -l "$lang"  | # gets rid of unnecessary variance, e.g. the ~4 different unicode dashes.
 	scripts/pre-tokenizer.perl -l "$lang" | # minor changes, e.g. "foo' s" becomes "foo 's"
 	scripts/tokenizer.perl -l "$lang" | # main tokenization script
@@ -105,4 +106,10 @@ parse_newstest "$VALID_PREFIX" "$REF" src
 parse_newstest "$TEST_PREFIX" "$SRC" src
 parse_newstest "$TEST_PREFIX" "$REF" src
 verify
+
+# Lowercase and map numbers to <NUM>
+for i in $(find $OUT_DIR -name "*.$SRC" -o -name "*.$REF"); do
+	echo "Lowercase and <NUM> : "$i
+	scripts/lowernum < "$i" > "$i.lowernum"
+done
 

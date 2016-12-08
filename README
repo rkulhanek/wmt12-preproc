@@ -4,3 +4,12 @@ pre-tokenizer.perl : from Moses
 tokenizer.perl : from europarl tools.tgz
 normalize-punctuation.perl : from wmt12 tools
 
+
+fetch.sh will grab the corpora from the internet and extract the necessary files
+to various subdirectories under ./corpora.
+
+./run.sh can then be run immediately.
+
+Alternately, you can download/extract them yourself and set the variables in run.sh
+appropriately.
+

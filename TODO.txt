@@ -1,4 +1,0 @@
-europarl page has a tools.tgz.  More complete version of the ones from
-wmt12.  Use those; more prefix files if nothing else. Also probably
-where wmt12 got it from, so better to cite that.
-
