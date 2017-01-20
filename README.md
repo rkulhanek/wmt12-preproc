@@ -24,6 +24,24 @@ files to various subdirectories under ./corpora.
 Alternately, you can download/extract them yourself and set the variables in
 run.sh appropriately.
 
-## Miscellaneous
-These scripts don't do OOV replacement or recasing; that can be done by the
-model if desired.
+
+## Output
+
+### Corpora
+* europarl     : training
+* newstest2010 : validation
+* newstest2011 : test
+
+### Languages
+* en
+* fr
+
+It will create two files for each corpus/language pair in the "out" directory:
+corpus.lang and corpus.lang.lowernum (e.g. europarl.en, europarl.en.lowernum).
+
+The former has no recasing or replacement of words.  The latter lowercases and replaces numbers with the <NUM> token.
+
+Neither replace OOV words with UNK; that can be done by the model as desired.
+
+vocab/vocab.en and vocab/vocab.fr are the vocabularies I'm using.
+
