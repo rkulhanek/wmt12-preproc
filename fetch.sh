@@ -26,7 +26,7 @@ function fetch() {
 	else
 		echo "Extracting Raw Europarl"
 		# Europarl is huge. Only extract the parts we're using
-		tar -xzf "europarl.tgz" "txt/$SRC" "txt/$REF"
+		tar --totals -xzf "europarl.tgz" "txt/$SRC" "txt/$REF"
 	fi
 
 	# Sentence-aligned corpus
@@ -36,7 +36,7 @@ function fetch() {
 		echo "Aligned Europarl already extracted"
 	else
 		echo "Extracting Aligned Europarl"
-		tar -xzf "$SRC-$REF.tgz"
+		tar --totals -xzf "$SRC-$REF.tgz"
 	fi
 
 	# Newstest
@@ -45,7 +45,7 @@ function fetch() {
 		echo "Newstest already extracted"
 	else
 		echo "Extracting Newstest"
-		tar -xzf "dev.tgz"
+		tar --totals -xzf "dev.tgz"
 	fi
 
 	cd "$DIR"
