@@ -11,9 +11,9 @@ document boundaries, which are then marked with </doc> tags.
 * make
 
 ## Scripts included from other projects
-pre-tokenizer.perl : from Moses
-tokenizer.perl : from europarl tools.tgz
-normalize-punctuation.perl : from wmt12 tools
+* pre-tokenizer.perl : from Moses
+* tokenizer.perl : from europarl tools.tgz
+* normalize-punctuation.perl : from wmt12 tools
 
 ## Running
 ./fetch.sh will grab the corpora from the internet and extract the necessary
