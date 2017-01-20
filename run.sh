@@ -44,10 +44,6 @@ function parse_europarl() {
 	scripts/tokenizer.perl -l "$lang" | # main tokenization script
 	sed 's/^ENDxDOCUMENT$/<\/doc>/' | # bak to </doc>
 	scripts/remove_empty_docs.awk > "$OUT_DIR/europarl.$lang"
-	
-	# TODO:
-	# Put this all on github when I'm done so I don't lose it.
-	# Have a makefile or something that wgets the appropriate corpora and does everything from scratch?
 }
 
 function parse_newstest() {
