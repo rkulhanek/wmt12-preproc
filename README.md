@@ -1,7 +1,7 @@
 # WMT12 Preprocessing Scripts
 
 Preprocesses WMT12 en-fr parallel corpora, and uses the raw data to locate
-document boundaries, which are then marked with </doc> tags.
+document boundaries, which are then marked with \</doc> tags.
 
 ## Prerequisites
 * dmd: https://dlang.org/download.html
@@ -39,7 +39,7 @@ run.sh appropriately.
 It will create two files for each corpus/language pair in the "out" directory:
 corpus.lang and corpus.lang.lowernum (e.g. europarl.en, europarl.en.lowernum).
 
-The former has no recasing or replacement of words.  The latter lowercases and replaces numbers with the <NUM> token.
+The former has no recasing or replacement of words.  The latter lowercases and replaces numbers with the \<NUM> token.
 
 Neither replace OOV words with UNK; that can be done by the model as desired.
 
