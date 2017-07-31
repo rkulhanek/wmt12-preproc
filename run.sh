@@ -43,6 +43,7 @@ function parse_europarl() {
 	scripts/pre-tokenizer.perl -l "$lang" | # minor changes, e.g. "foo' s" becomes "foo 's"
 	scripts/tokenizer.perl -l "$lang" | # main tokenization script
 	sed 's/^ENDxDOCUMENT$/<\/doc>/' | # bak to </doc>
+	sed '$a<\/doc>' | # make sure there's a doc tag at the end (if duplicated, the next bit will remove one)
 	scripts/remove_empty_docs.awk > "$OUT_DIR/europarl.$lang"
 }
 
