@@ -1,6 +1,7 @@
 scripts/mark_chapters
 scripts/remove_blanklines
 scripts/lowernum
+scripts/remove_oov
 scripts/*.o
 tmp
 out
